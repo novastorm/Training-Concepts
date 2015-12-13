@@ -1,0 +1,3 @@
+# WSGIScriptAlias / /usr/share/udacity-item-catalog/vagrant/public/wsgi.py
+
+AddHandler wsgi-script .wsgi
