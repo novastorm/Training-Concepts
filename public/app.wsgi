@@ -1,10 +1,14 @@
 #!/usr/bin/env python
-
 import os
 import sys 
 
-here = os.path.dirname(__file__)
+from os.path import dirname, realpath
 
-sys.path.insert(0, os.path.join(here, '../'))
+project_path = dirname(dirname(realpath(__file__)))
+
+activate_this = project_path + '/../bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+
+sys.path.insert(0, project_path)
 
 from project import app as application
