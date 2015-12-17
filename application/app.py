@@ -1,7 +1,11 @@
 from flask import Flask
 
+from routes.v0.course import course_api as api_v0_course_bp
+
 app = Flask(__name__)
 app.secret_key = 'super_secret_key'
+
+app.register_blueprint(api_v0_course_bp, url_prefix='/api/v0/courses')
 
 @app.route('/')
 def showHome():
