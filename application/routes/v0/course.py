@@ -4,8 +4,9 @@ from flask import Blueprint
 from flask import abort
 from flask import jsonify
 
-course = Blueprint('course', __name__)
-course_api = Blueprint('course_api', __name__)
+app = Blueprint('course', __name__)
+api = Blueprint('course_api', __name__)
+
 label = "Course"
 
 def _getIndex():
@@ -36,32 +37,41 @@ def _destroyRecord(req):
 # API routes
 #
 
-@course_api.route('/')
-@course_api.route('.json')
+@api.route('/courses')
+@api.route('/courses.json')
 def api_index():
-    return jsonify(category_list=['index.json'])
+    return jsonify(course_list=['index.json'])
 
-@course_api.route('/<int:category_id>')
-@course_api.route('/<int:category_id>.json')
-def api_show(category_id):
-    setattr(request, 'category_id', category_id)    
+@api.route('/courses/<int:course_id>')
+@api.route('/courses/<int:course_id>.json')
+def api_show(course_id):
+    setattr(request, 'course_id', course_id)    
     record = _showRecord(request)
-    return jsonify(category=record)
+    return jsonify(course=record)
 
-@course_api.route('/', methods=['POST'])
+@api.route('/courses', methods=['POST'])
 def api_store():
     record = _storeRecord(request)
-    return jsonify(category=record)
+    return jsonify(course=record)
 
-@course_api.route('/<int:category_id>', methods=['PUT'])
-def api_update(category_id):
-    setattr(request, 'category_id', category_id)
+@api.route('/courses/<int:course_id>', methods=['PUT'])
+def api_update(course_id):
+    setattr(request, 'course_id', course_id)
     record = _updateRecord(request)
-    return jsonify(category=record)
+    return jsonify(course=record)
 
-@course_api.route('/<int:category_id>', methods=['DELETE'])
-def api_destroy(category_id):
-    setattr(request, 'category_id', category_id)
+@api.route('/courses/<int:course_id>', methods=['DELETE'])
+def api_destroy(course_id):
+    setattr(request, 'course_id', course_id)
     record = _destroyRecord(request)
-    return jsonify(category=record)
+    return jsonify(course=record)
 
+
+###############################################################################
+#
+# API routes
+#
+
+@app.route('/courses')
+def app_index():
+    return "Course Index Page"
