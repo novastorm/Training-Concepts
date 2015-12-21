@@ -8,7 +8,7 @@ from flask import request
 app = Blueprint('skill', __name__)
 api = Blueprint('skill_api', __name__)
 
-label = "Course-Skill"
+label = "Skill"
 
 def _getIndex():
     """Retrieve %s index data
@@ -41,7 +41,16 @@ def _destroyRecord(req):
 @api.route('/skills')
 @api.route('/skills.json')
 def api_index():
-    return jsonify(skill_list=['index.json'], req=request.form)
+    return jsonify(
+        skill_list=['index.json'], 
+        req=request.values)
+
+@api.route('/skills;saved')
+def api_index_saved():
+    return jsonify(
+        skill_list_saved=['index.json'], 
+        req=request.values)
+
 
 @api.route('/skills/<int:skill_id>')
 @api.route('/skills/<int:skill_id>.json')
