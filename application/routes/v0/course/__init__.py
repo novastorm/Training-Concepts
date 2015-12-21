@@ -3,6 +3,7 @@ import flask
 from flask import Blueprint
 from flask import abort
 from flask import jsonify
+from flask import request
 
 app = Blueprint('course', __name__)
 api = Blueprint('course_api', __name__)
