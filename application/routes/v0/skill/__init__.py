@@ -41,8 +41,9 @@ def _destroyRecord(req):
 @api.route('/skills')
 @api.route('/skills.json')
 def api_index():
+    records = _getIndex()
     return jsonify(
-        skill_list=['index.json'], 
+        skill_list=[records], 
         req=request.values)
 
 @api.route('/skills;saved')

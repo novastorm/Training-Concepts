@@ -2,16 +2,26 @@ from flask import Flask
 
 # from routes.v0.course import app as course_bp
 from routes.v0.course import api as api_v0_course_bp
+from routes.v0.course.exercise import api as api_v0_course_exercise_bp
+from routes.v0.course.question import api as api_v0_course_question_bp
 from routes.v0.course.skill import api as api_v0_course_skill_bp
+from routes.v0.course.student import api as api_v0_course_student_bp
+from routes.v0.exercise import api as api_v0_exercise_bp
 from routes.v0.skill import api as api_v0_skill_bp
+from routes.v0.user import api as api_v0_user_bp
 
 app = Flask(__name__)
 app.secret_key = 'super_secret_key'
 
 # app.register_blueprint(course_bp)
 app.register_blueprint(api_v0_course_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_course_exercise_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_course_question_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_course_skill_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_course_student_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_exercise_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_skill_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_user_bp, url_prefix='/api/v0')
 
 @app.route('/')
 def showHome():

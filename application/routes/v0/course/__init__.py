@@ -41,7 +41,8 @@ def _destroyRecord(req):
 @api.route('/courses')
 @api.route('/courses.json')
 def api_index():
-    return jsonify(course_list=['index.json'])
+    records = _getIndex()
+    return jsonify(course_list=[records])
 
 @api.route('/courses/<int:course_id>')
 @api.route('/courses/<int:course_id>.json')
@@ -66,13 +67,3 @@ def api_destroy(course_id):
     setattr(request, 'course_id', course_id)
     record = _destroyRecord(request)
     return jsonify(course=record)
-
-
-###############################################################################
-#
-# API routes
-#
-
-@app.route('/courses')
-def app_index():
-    return "Course Index Page"
