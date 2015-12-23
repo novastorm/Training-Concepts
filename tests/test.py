@@ -18,6 +18,7 @@ from tests.exercise import *
 from tests.exercise.exercise import *
 from tests.exercise.skill import *
 from tests.profile import *
+from tests.profile.course import *
 from tests.skill import *
 from tests.user import *
 

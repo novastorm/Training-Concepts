@@ -5,7 +5,6 @@ from app import app
 
 label = "Profile"
 uri = '/api/v0/profile'
-course_id = '1'
 
 class apiProfileTestCase(unittest.TestCase):
 

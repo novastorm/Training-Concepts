@@ -14,7 +14,7 @@ def _getIndex(req):
     """Retrieve %s index data
 
     return index data""" % label
-    return "%s Index" % label
+    return "%s %s Index" % (label, req.profile_id)
 
 
 ###############################################################################
@@ -22,9 +22,9 @@ def _getIndex(req):
 # API routes
 #
 
-@api.route('/profiles/<int:profile_id>/courses')
-@api.route('/profiles/<int:profile_id>/courses.json')
+@api.route('/profile/<int:profile_id>/courses')
+@api.route('/profile/<int:profile_id>/courses.json')
 def api_index(profile_id):
     setattr(request, 'profile_id', profile_id)  
-    records = _getIndex(request)  
-    return jsonify(course_list=[records])
+    records = _getIndex(request)
+    return records
