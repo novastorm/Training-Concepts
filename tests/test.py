@@ -20,6 +20,7 @@ from tests.exercise.skill import *
 from tests.profile import *
 from tests.profile.course import *
 from tests.role import *
+from tests.role.user import *
 from tests.skill import *
 from tests.skill.exercise import *
 from tests.skill.skill import *

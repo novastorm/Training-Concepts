@@ -14,15 +14,15 @@ def _getIndex(req):
     """Retrieve %s index data
 
     return index data""" % label
-    return "%s Index" % label
+    return "%s %s Index" % (label, req.role_id)
 
 def _storeRecord(req):
     """Store Record"""
-    return "%s _storeRecord" % label
+    return "%s %s _storeRecord" % (label, req.role_id)
 
 def _destroyRecord(req):
     """Destroy Record"""
-    return "%s _destroyRecord" % label
+    return "%s %s %s _destroyRecord" % (label, req.role_id, req.user_id)
 
 
 ###############################################################################
@@ -35,17 +35,17 @@ def _destroyRecord(req):
 def api_index(role_id):
     setattr(request, 'role_id', role_id)  
     records = _getIndex(request)  
-    return jsonify(user_list=[records])
+    return records
 
 @api.route('/roles/<int:role_id>/users', methods=['POST'])
 def api_store(role_id):
     setattr(request, 'role_id', role_id)    
     record = _storeRecord(request)
-    return jsonify(user=record)
+    return record
 
 @api.route('/roles/<int:role_id>/users/<int:user_id>', methods=['DELETE'])
 def api_destroy(role_id, user_id):
     setattr(request, 'role_id', role_id)
     setattr(request, 'user_id', user_id)
     record = _destroyRecord(request)
-    return jsonify(user=record)
+    return record
