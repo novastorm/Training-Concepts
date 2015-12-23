@@ -14,6 +14,7 @@ from routes.v0.profile import api as api_v0_profile_bp
 from routes.v0.profile.course import api as api_v0_profile_course_bp
 from routes.v0.skill import api as api_v0_skill_bp
 from routes.v0.user import api as api_v0_user_bp
+from routes.v0.user.role import api as api_v0_user_role_bp
 
 app = Flask(__name__)
 app.secret_key = 'super_secret_key'
@@ -32,6 +33,7 @@ app.register_blueprint(api_v0_profile_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_profile_course_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_skill_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_user_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_user_role_bp, url_prefix='/api/v0')
 
 @app.route('/')
 def showHome():

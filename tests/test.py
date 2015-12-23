@@ -21,6 +21,7 @@ from tests.profile import *
 from tests.profile.course import *
 from tests.skill import *
 from tests.user import *
+from tests.user.role import *
 
 if __name__ == '__main__':
     unittest.main()
