@@ -24,6 +24,7 @@ from tests.role.user import *
 from tests.skill import *
 from tests.skill.exercise import *
 from tests.skill.skill import *
+from tests.student import *
 from tests.user import *
 from tests.user.role import *
 

@@ -17,6 +17,7 @@ from routes.v0.role.user import api as api_v0_role_user_bp
 from routes.v0.skill import api as api_v0_skill_bp
 from routes.v0.skill.exercise import api as api_v0_skill_exercise_bp
 from routes.v0.skill.skill import api as api_v0_skill_skill_bp
+from routes.v0.student import api as api_v0_student_bp
 from routes.v0.user import api as api_v0_user_bp
 from routes.v0.user.role import api as api_v0_user_role_bp
 
@@ -40,6 +41,7 @@ app.register_blueprint(api_v0_role_user_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_skill_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_skill_exercise_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_skill_skill_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_student_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_user_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_user_role_bp, url_prefix='/api/v0')
 
