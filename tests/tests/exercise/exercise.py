@@ -5,7 +5,7 @@ from app import app
 
 label = "Exercise-Exercise"
 
-class apiCourseExerciseTestCase(unittest.TestCase):
+class apiExerciseExerciseTestCase(unittest.TestCase):
     def setUp(self):
         self.app = app.test_client()
 
