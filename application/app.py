@@ -12,6 +12,7 @@ from routes.v0.exercise.exercise import api as api_v0_exercise_exercise_bp
 from routes.v0.exercise.skill import api as api_v0_exercise_skill_bp
 from routes.v0.profile import api as api_v0_profile_bp
 from routes.v0.profile.course import api as api_v0_profile_course_bp
+from routes.v0.progress import api as api_v0_progress_bp
 from routes.v0.role import api as api_v0_role_bp
 from routes.v0.role.user import api as api_v0_role_user_bp
 from routes.v0.skill import api as api_v0_skill_bp
@@ -36,6 +37,7 @@ app.register_blueprint(api_v0_exercise_exercise_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_exercise_skill_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_profile_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_profile_course_bp, url_prefix='/api/v0')
+app.register_blueprint(api_v0_progress_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_role_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_role_user_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_skill_bp, url_prefix='/api/v0')
