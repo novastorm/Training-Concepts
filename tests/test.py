@@ -1,7 +1,4 @@
-import json
-import os
 import sys
-import tempfile
 import unittest
 
 sys.path.insert(0, '../application')
@@ -20,6 +17,7 @@ from tests.exercise.skill import *
 from tests.profile import *
 from tests.profile.course import *
 from tests.progress import *
+from tests.progress.activity import *
 from tests.role import *
 from tests.role.user import *
 from tests.skill import *
