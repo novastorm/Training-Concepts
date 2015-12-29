@@ -1,3 +1,10 @@
+'''
+enrollment.py
+
+This module handles 
+
+'''
+
 import flask
 
 from flask import Blueprint
@@ -11,11 +18,11 @@ api = Blueprint('course_enrollment_api', __name__)
 label = "Course-Enrollment"
 
 def _enrollCourse(req):
-    """Store Record"""
+    """Enroll Course"""
     return "%s %s enroll" % (label, req.course_id)
 
 def _dropCourse(req):
-    """Destroy Record"""
+    """Drop Course"""
     return "%s %s drop" % (label, req.course_id)
 
 
@@ -25,7 +32,7 @@ def _dropCourse(req):
 #
 
 @api.route('/courses/<int:course_id>/enroll', methods=['POST'])
-def api_store(course_id):
+def api_enroll(course_id):
     setattr(request, 'course_id', course_id)    
     record = _enrollCourse(request)
     return record

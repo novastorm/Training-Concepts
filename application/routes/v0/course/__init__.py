@@ -18,7 +18,7 @@ def _getIndex():
 
 def _showRecord(req):
     """Show Record"""
-    print flask.url_for('course_skill_api.api_index', course_id=req.course_id)
+    # print flask.url_for('course_skill_api.api_index', course_id=req.course_id)
     return "%s _showRecord" % label
 
 def _storeRecord(req):
