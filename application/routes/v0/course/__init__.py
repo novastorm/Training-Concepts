@@ -1,5 +1,7 @@
 import flask
 
+from models.course import Course
+
 from flask import Blueprint
 from flask import abort
 from flask import jsonify

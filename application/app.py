@@ -1,5 +1,7 @@
 from flask import Flask
 
+from models import Base
+
 # from routes.v0.course import app as course_bp
 from routes.v0.course import api as api_v0_course_bp
 from routes.v0.course.exercise import api as api_v0_course_exercise_bp
@@ -23,8 +25,11 @@ from routes.v0.student import api as api_v0_student_bp
 from routes.v0.user import api as api_v0_user_bp
 from routes.v0.user.role import api as api_v0_user_role_bp
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
 app = Flask(__name__)
-app.secret_key = 'super_secret_key'
 
 # app.register_blueprint(course_bp)
 app.register_blueprint(api_v0_course_bp, url_prefix='/api/v0')
@@ -49,6 +54,7 @@ app.register_blueprint(api_v0_student_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_user_bp, url_prefix='/api/v0')
 app.register_blueprint(api_v0_user_role_bp, url_prefix='/api/v0')
 
+
 @app.route('/')
 def showHome():
     return "Home"
@@ -57,6 +63,16 @@ def showHome():
 def showTest():
     return "Test"
 
+app.config.from_object('config.DevelopmentConfig')
+
 if __name__ == '__main__':
-    app.debug = True
+    import config
+
+    engine = create_engine(app.config['DATABASE_URI'])
+
+    Base.metadata.bind = engine
+    Base.metadata.create_all(engine)
+
+    sessionmaker(bind=engine)
+
     app.run(host='0.0.0.0', port=5000)

@@ -1,7 +1,8 @@
 '''
 enrollment.py
 
-This module handles 
+This module contains the student functions for managing course
+enrollment.
 
 '''
 
