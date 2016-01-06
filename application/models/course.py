@@ -1,4 +1,5 @@
-from app import app
+from flask import current_app
+from application.config import DATABASE_TABLE_PREFIX as TablePrefix
 
 from sqlalchemy import func
 from sqlalchemy import Column
@@ -12,7 +13,6 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
-TablePrefix = app.config['DATABASE_TABLE_PREFIX']
 
 class Course(Base):
     __tablename__ = '%s%s' % (TablePrefix, 'Course')

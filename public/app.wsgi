@@ -10,4 +10,4 @@ execfile(activate_this, dict(__file__=activate_this))
 
 sys.path.insert(0, project_path + '/application')
 
-from app import app as application
+from application import app as application

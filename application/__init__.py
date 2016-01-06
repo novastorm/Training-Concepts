@@ -1,5 +1,8 @@
 from flask import Flask
 
+app = Flask(__name__)
+app.config.from_object('application.config')
+
 from models import Base
 
 # from routes.v0.course import app as course_bp
@@ -28,8 +31,6 @@ from routes.v0.user.role import api as api_v0_user_role_bp
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-
-app = Flask(__name__)
 
 # app.register_blueprint(course_bp)
 app.register_blueprint(api_v0_course_bp, url_prefix='/api/v0')
@@ -63,10 +64,10 @@ def showHome():
 def showTest():
     return "Test"
 
-app.config.from_object('config.DevelopmentConfig')
 
 if __name__ == '__main__':
     import config
+    app.config.from_object('config.DevelopmentConfig')
 
     engine = create_engine(app.config['DATABASE_URI'])
 
@@ -75,4 +76,4 @@ if __name__ == '__main__':
 
     sessionmaker(bind=engine)
 
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=4000)

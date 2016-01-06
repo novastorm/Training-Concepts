@@ -1,6 +1,6 @@
 import flask
 
-from models.course import Course
+from application.models.course import Course
 
 from flask import Blueprint
 from flask import abort
