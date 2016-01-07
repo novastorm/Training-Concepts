@@ -2,6 +2,8 @@ from os.path import dirname, realpath
 
 app_path = dirname(dirname(realpath(__file__)))
 
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
 DEBUG = True
 
 SECRET_KEY = 'Super Secret Key'

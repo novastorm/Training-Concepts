@@ -1,5 +1,5 @@
-from application import app
+from application import app as application
 
-app.config.from_object('application.config')
+# application.config.from_object('application.config')
 
-app.run(debug=True)
+application.run(debug=True)

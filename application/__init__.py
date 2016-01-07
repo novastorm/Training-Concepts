@@ -1,8 +1,11 @@
 from flask import Flask
+from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config.from_object('application.config')
 
-from models import Base
+db = SQLAlchemy(app)
+
 
 # from routes.v0.course import app as course_bp
 from routes.v0.course import api as api_v0_course_bp
@@ -62,17 +65,3 @@ def showHome():
 @app.route('/test')
 def showTest():
     return "Test"
-
-
-if __name__ == '__main__':
-    import config
-    app.config.from_object('config.DevelopmentConfig')
-
-    engine = create_engine(app.config['DATABASE_URI'])
-
-    Base.metadata.bind = engine
-    Base.metadata.create_all(engine)
-
-    sessionmaker(bind=engine)
-
-    app.run(host='0.0.0.0', port=4000)
