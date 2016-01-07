@@ -1,5 +1,4 @@
-from flask import current_app
-from application.config import DATABASE_TABLE_PREFIX as TablePrefix
+from application import app, db
 
 from sqlalchemy import func
 from sqlalchemy import Column
@@ -9,12 +8,14 @@ from sqlalchemy import Integer
 from sqlalchemy import String
 from sqlalchemy import Text
 from sqlalchemy import UniqueConstraint
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+# from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+# Base = declarative_base()
 
-class Course(Base):
+TablePrefix = app.config['DATABASE_TABLE_PREFIX']
+
+class Course(db.Model):
     __tablename__ = '%s%s' % (TablePrefix, 'Course')
 
     id = Column(Integer, primary_key=True)

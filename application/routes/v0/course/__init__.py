@@ -1,5 +1,6 @@
 import flask
 
+from application import db
 from application.models.course import Course
 
 from flask import Blueprint
@@ -16,7 +17,7 @@ def _getIndex():
     """Retrieve %s index data
 
     return index data"""
-    return "%s Index" % label
+    return Course.query.all()
 
 def _showRecord(req):
     """Show Record"""
@@ -45,7 +46,7 @@ def _destroyRecord(req):
 @api.route('/courses.json')
 def api_index():
     records = _getIndex()
-    return jsonify(course_list=[records])
+    return jsonify(course_list=records)
 
 @api.route('/courses/<int:course_id>')
 @api.route('/courses/<int:course_id>.json')
