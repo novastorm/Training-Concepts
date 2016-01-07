@@ -30,8 +30,8 @@ from routes.v0.student import api as api_v0_student_bp
 from routes.v0.user import api as api_v0_user_bp
 from routes.v0.user.role import api as api_v0_user_role_bp
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+# from sqlalchemy import create_engine
+# from sqlalchemy.orm import sessionmaker
 
 
 # app.register_blueprint(course_bp)
