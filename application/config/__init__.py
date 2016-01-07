@@ -10,7 +10,7 @@ SECRET_KEY = 'Super Secret Key'
 
 DATABASE_TABLE_PREFIX = 'ACT_'
 
-SQLALCHEMY_DATABASE_URI = 'sqlite://%s/test.db' % app_path
+SQLALCHEMY_DATABASE_URI = 'sqlite:///%s/test.sqlite3' % app_path
 
 # class Config(object):
 #     DEBUG = False
